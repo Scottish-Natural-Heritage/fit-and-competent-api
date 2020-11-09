@@ -1,0 +1,53 @@
+{
+  "name": "fit-and-competent-api",
+  "version": "1.0.0",
+  "description": "",
+  "author": "John Moore <john.noore@nature.scot>",
+  "repository": "github:Scottish-Natural-Heritage/fit-and-competent-api",
+  "type": "module",
+  "scripts": {
+    "lint": "xo",
+    "prestart": "npm run lint",
+    "start": "node --experimental-modules src/server.js",
+    "test": "start-server-and-test start http://localhost:3005/fit-and-competent-api/v1/health"
+  },
+  "engines": {
+    "node": "12.14.1",
+    "npm": "6.13.4"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "notifications-node-client": "^4.7.2",
+    "pg": "^7.18.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.5",
+    "sequelize-cli": "^5.5.1",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "prettier": "^2.0.2",
+    "newman": "^4.6.0",
+    "sqlite3": "^5.0.0",
+    "start-server-and-test": "^1.10.11",
+    "xo": "^0.28.0"
+  },
+  "xo": {
+    "space": 2,
+    "prettier": true,
+    "parser": "babel-eslint",
+    "rules": {
+      "import/extensions": 0,
+      "new-cap": 0
+    }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "arrowParens": "always",
+    "bracketSpacing": false,
+    "trailingComma": "none"
+  }
+}
