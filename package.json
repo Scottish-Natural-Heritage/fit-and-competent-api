@@ -9,7 +9,8 @@
     "lint": "xo",
     "prestart": "npm run lint",
     "start": "node --experimental-modules src/server.js",
-    "test": "start-server-and-test start http://localhost:3005/fit-and-competent-api/v1/health"
+    "nm:run": "newman run tests/fit-and-competent-api.postman_collection.json",
+    "test": "start-server-and-test start http://localhost:3005/fit-and-competent-api/v1/health nm:run"
   },
   "engines": {
     "node": "12.14.1",
