@@ -31,12 +31,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3005/fit-and-competent-api/v1/health",
+					"raw": "http://localhost:3009/fit-and-competent-api/v1/health",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3005",
+					"port": "3009",
 					"path": [
 						"fit-and-competent-api",
 						"v1",
@@ -73,12 +73,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3005/fit-and-competent-api",
+					"raw": "http://localhost:3009/fit-and-competent-api",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3005",
+					"port": "3009",
 					"path": [
 						"fit-and-competent-api"
 					]

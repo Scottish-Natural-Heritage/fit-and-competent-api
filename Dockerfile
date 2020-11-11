@@ -19,7 +19,7 @@ COPY --chown=node:node ./src ./src
 
 # these variables are for overriding but keep them consistent between image and
 # run
-ENV FC_API_PORT 3005
+ENV FC_API_PORT 3009
 ENV FC_API_PATH_PREFIX fit-and-competent-api
 
 # these variables are for overriding and they only matter during run
