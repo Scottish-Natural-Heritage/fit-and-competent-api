@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "9586a3eb-23e8-4a1c-877a-51ac8df2de0d",
+		"name": "fit-and-competent-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7ee26c51-2fd9-4586-8f99-9595580d075d",
+						"exec": [
+							"pm.test('Status code is 200 OK', function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.status('OK');\r",
+							"});\r",
+							"\r",
+							"pm.test('Message is \"OK\"', function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql('OK');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3009/fit-and-competent-api/v1/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"fit-and-competent-api",
+						"v1",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "404 Error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0e649cfb-0470-44ad-90b5-5f2bf99b45b4",
+						"exec": [
+							"pm.test('Status code is 404 Not Found', function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"    pm.response.to.have.status('Not Found');\r",
+							"});\r",
+							"\r",
+							"pm.test('Message is \"Not found.\"', function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql('Not found.');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3009/fit-and-competent-api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"fit-and-competent-api"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
