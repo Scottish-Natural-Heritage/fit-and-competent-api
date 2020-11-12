@@ -7,7 +7,9 @@
   "type": "module",
   "scripts": {
     "lint": "xo",
-    "prestart": "npm run lint",
+    "premigrations": "npx sequelize-cli db:migrate --env preMigrations --migrations-path util/db/pre-migrations",
+    "migrations": "npx sequelize-cli db:migrate  --env database",
+    "prestart": "npm run lint && npm run migrations",
     "start": "node --experimental-modules src/server.js",
     "nm:run": "newman run tests/fit-and-competent-api.postman_collection.json",
     "test": "start-server-and-test start http://localhost:3009/fit-and-competent-api/v1/health nm:run"
