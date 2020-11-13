@@ -85,6 +85,52 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Create new Application",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e646f465-c986-4f58-86a0-df1aa1586078",
+						"exec": [
+							"pm.test('Status code is 201 Created', function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"    pm.response.to.have.status('Created');\r",
+							"});\r",
+							"\r",
+							"pm.test('Location is present', function () {\r",
+							"    pm.response.to.have.header('Location');\r",
+							"    \r",
+							"    \r",
+							"    pm.expect(pm.response.headers.get('Location')).to.include(\r",
+							"        `http://localhost:3009/fit-and-competent-api/v1/applications/`\r",
+							"    );\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3009/fit-and-competent-api/v1/applications",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"fit-and-competent-api",
+						"v1",
+						"applications"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
