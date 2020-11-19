@@ -68,6 +68,47 @@ const ApplicationController = {
 
     // On success, return the new application's ID.
     return newApp.id;
+  },
+
+  /**
+   * Retrieve the specified registration from the database.
+   *
+   * @param {Number} id an existing registration's ID
+   * @returns an existing registration
+   */
+  findOne: async (id) => {
+    return Application.findByPk(id);
+  },
+
+  /**
+   * Replace a application in the database with our new JSON model.
+   *
+   * @param {Number} id an existing application's ID
+   * @param {any} reg a JSON version of the model to replace the database's copy
+   * @returns {boolean} true if the record is updated, otherwise false
+   */
+  update: async (id, app) => {
+    // Save the new values to the database.
+    const result = await Application.update(app, {where: {id}});
+
+    // Check to make sure the saving process went OK.
+    const success = result.length > 0 && result[0] === 1;
+    if (success) {
+      // Take a copy of the object's fields as we're about to add two extra ones
+      // to it.
+      // eslint-disable-next-line unicorn/prevent-abbreviations
+      const updatedApplication = {...app};
+
+      // Generate and save the human-readable version of the application no.
+      updatedApplication.applicationRef = `FC-${String(id).padStart(5, '0')}`;
+
+      // Return the updated object to the caller, for them to send back to the
+      // client.
+      return updatedApplication;
+    }
+
+    // If something went wrong, return undefined to signify this.
+    return undefined;
   }
 };
 
