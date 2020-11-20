@@ -39,25 +39,18 @@ const cleanInt = (dirtyValue) => {
     return undefined;
   }
 
-  // Check we've not been given an empty string.
-  const trimmedValue = dirtyValue.trim();
-  if (trimmedValue === '') {
-    return undefined;
-  }
-
   // Check we're only receiving digits, not text, negative numbers or floats.
-  if (!/^\d+$/.test(trimmedValue)) {
+  if (!/^\d+$/.test(dirtyValue)) {
     return undefined;
   }
 
   // Check it does actually parse correctly.
-  const valueAsNumber = Number.parseInt(trimmedValue, 10);
-  if (Number.isNaN(valueAsNumber)) {
+  if (Number.isNaN(dirtyValue)) {
     return undefined;
   }
 
   // Return the fully validated integer value.
-  return valueAsNumber.valueOf();
+  return dirtyValue.valueOf();
 };
 
 /**
@@ -145,8 +138,8 @@ const cleanInput = (body) => {
 
   const qualificationDate = new Date(body.qualificationObtainedDate);
   const qualificationDay = cleanDay(qualificationDate.getDate());
-  const qualificationMonth = cleanMonth(firearmDate.getMonth() + 1);
-  const qualificationYear = cleanYear(firearmDate.getFullYear());
+  const qualificationMonth = cleanMonth(qualificationDate.getMonth() + 1);
+  const qualificationYear = cleanYear(qualificationDate.getFullYear());
   const qualificationDateInvalid =
     qualificationDate.getDate() !== qualificationDay ||
     qualificationDate.getMonth() + 1 !== qualificationMonth ||
