@@ -160,8 +160,8 @@ const cleanInput = (body) => {
     fallowExperience: body.fallowExperience === undefined ? undefined : cleanInt(body.fallowExperience),
     fallowControl: body.fallowControl === undefined ? undefined : cleanInt(body.fallowControl),
     // The dates
-    certificateIssuedDate: firearmDateInvalid ? undefined : body.certificateIssuedDate,
-    qualificationObtainedDate: qualificationDateInvalid ? undefined : body.qualificationObtainedDate,
+    certificateIssuedDate: firearmDateInvalid ? undefined : firearmDate,
+    qualificationObtainedDate: qualificationDateInvalid ? undefined : qualificationDate,
     // The strings are trimmed for leading and trailing whitespace and then
     // copied across if they're in the POST body or are set to undefined if
     // they're missing.
