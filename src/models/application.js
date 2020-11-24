@@ -108,6 +108,12 @@ const ApplicationModel = (sequelize, DataTypes) => {
           notEmpty: true,
           isEmail: true
         }
+      },
+      refereeName: {
+        type: DataTypes.STRING
+      },
+      refereeEmail: {
+        type: DataTypes.STRING
       }
     },
     {
