@@ -28,7 +28,6 @@ ENV FC_API_PATH_PREFIX fit-and-competent-api
 ENV LICENSING_DB_HOST override_this_value
 ENV LICENSING_DB_PASS override_this_value
 ENV FC_DB_PASS override_this_value
-ENV FC_NOTIFY_API_KEY override_this_value
 
 # let docker know about our listening port
 EXPOSE $FC_API_PORT
